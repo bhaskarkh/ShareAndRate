@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
 
@@ -25,6 +24,7 @@ public class ShareAndRateApp {
 
     public void shareMyApp(int icon_image, String subject, String txtmsg)
     {
+        Log.d(TAG, "shareMyApp: ");
 
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), icon_image);
         String link = "https://play.google.com/store/apps/details?id="+context.getPackageName();
@@ -40,11 +40,8 @@ public class ShareAndRateApp {
             file.setReadable(true, false);
             final Intent intent = new Intent(android.content.Intent.ACTION_SEND);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            //   Uri outputUri=FileProvider.getUriForFile(this, AUTHORITY, file);
-            // intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file)); previous working
 
             Uri outputFileUri = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
-            // intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(getApplicationContext(), getPackageName() + ".fileProvider", file));
             intent.putExtra(Intent.EXTRA_STREAM, outputFileUri);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.putExtra("android.intent.extra.SUBJECT",subject);
