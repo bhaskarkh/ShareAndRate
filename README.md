@@ -16,9 +16,10 @@ Add it in your root build.gradle at the end of repositories:
          compile 'com.github.hajiyevelnur92:intentanimation:1.0'
     }
   
-  **There are two method**
+ 
   
   ##**Code**
+   **There are two method**
 ```java
   shareMyApp(int,String,String);
   rateThisApp();
