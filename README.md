@@ -22,7 +22,8 @@ Add it in your root build.gradle at the end of repositories:
    
 ```java
   There are two method
-  shareMyApp(int,String,String);
+  shareMyApp(int icon_image, String subject, String txtmsg);
+  shareMyApp(int icon_image, String subject, String txtmsg,String link);
   rateThisApp();
   
 
