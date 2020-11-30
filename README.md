@@ -17,13 +17,11 @@ Add it in your root build.gradle at the end of repositories:
     }
   
   There are two method 
-  #### **Code**
+  ##**Code**
 ```java
   shareMyApp(int,String,String);
   rateThisApp();
   
-  #### **Code**
-```java
 
   //to share the app
 ShareAndRateApp shareAndRateApp=new ShareAndRateApp(this);
