@@ -1,0 +1,3 @@
+include ':shareandrateapp'
+include ':app'
+rootProject.name = "ShareAndRate"
