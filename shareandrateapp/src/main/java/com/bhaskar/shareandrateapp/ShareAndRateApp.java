@@ -24,15 +24,11 @@ public class ShareAndRateApp {
         this.context = context;
     }
 
-    public void shareMyApp(int icon_image, String subject, String txtmsg)
+    public void shareMyApp(int icon_image, String subject, String txtmsg,String link)
     {
-        Log.d(TAG, "shareMyApp: ");
 
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), icon_image);
-        String link = "https://play.google.com/store/apps/details?id="+context.getPackageName();
-
         txtmsg=txtmsg+" "+link;
-
         try {
             File file = new File(context.getExternalCacheDir(), "iconforshare.png");
             FileOutputStream fOut = new FileOutputStream(file);
@@ -57,8 +53,13 @@ public class ShareAndRateApp {
             e.printStackTrace();
 
         }
+    }
+    public void shareMyApp(int icon_image, String subject, String txtmsg)
+    {
+        Log.d(TAG, "shareMyApp: ");
 
-
+        String link = "https://play.google.com/store/apps/details?id="+context.getPackageName();
+        shareMyApp(icon_image,subject,txtmsg,link);
     }
     public void rateThisApp() {
 
