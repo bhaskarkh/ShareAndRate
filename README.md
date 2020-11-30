@@ -3,26 +3,27 @@ share and rate app libraray for play store
 
 Add it in your root build.gradle at the end of repositories:
 
-Step 1
-	allprojects {
+**Gradle**
+
+    allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
-	
-Step 2. Add the dependency
 
-	dependencies {
-	        implementation 'com.github.bhaskarkh:ShareAndRate:Tag'
-	}
+    dependencies {
+         compile 'com.github.hajiyevelnur92:intentanimation:1.0'
+    }
   
   There are two method 
   
   shareMyApp(int,String,String);
   rateThisApp();
   
-  
+  #### **Code**
+```java
+
   //to share the app
 ShareAndRateApp shareAndRateApp=new ShareAndRateApp(this);
 String txtmsg = "Bhaskar \n\n"+"Download App and Share with your Friends and enjoy\n";
