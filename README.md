@@ -19,8 +19,9 @@ Add it in your root build.gradle at the end of repositories:
  
   
   ##**Code**
-   **There are two method**
+   
 ```java
+  **There are two method**
   shareMyApp(int,String,String);
   rateThisApp();
   
