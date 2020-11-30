@@ -27,12 +27,16 @@ Add it in your root build.gradle at the end of repositories:
   rateThisApp();
   
 
-  //to share the app
+  //To share the app with playstore link
 ShareAndRateApp shareAndRateApp=new ShareAndRateApp(this);
 String txtmsg = "Bhaskar \n\n"+"Download App and Share with your Friends and enjoy\n";
 int image_name=R.drawable.b2 ; // image to be attached in msg
 
  shareAndRateApp.shareMyApp(image_name,"Subject",txtmsg);
  
- //to Rate the app
+ //To share the app with any other link
+ String link="abcd.com";
+ shareAndRateApp.shareMyApp(image_name,"Subject",txtmsg,link);
+ 
+ //To Rate the app
 shareAndRateApp.rateThisApp();
