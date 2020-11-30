@@ -2,6 +2,7 @@
 share and rate app libraray for play store
 
 Add it in your root build.gradle at the end of repositories:
+
 Step 1
 	allprojects {
 		repositories {
@@ -9,6 +10,7 @@ Step 1
 			maven { url 'https://jitpack.io' }
 		}
 	}
+	
 Step 2. Add the dependency
 
 	dependencies {
