@@ -13,7 +13,7 @@ Add it in your root build.gradle at the end of repositories:
 	}
 
     dependencies {
-         implementation 'com.github.hajiyevelnur92:intentanimation:1.0.5';
+          implementation 'com.github.bhaskarkh:ShareAndRate:1.0.5';
     }
   
  
