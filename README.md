@@ -13,7 +13,7 @@ Add it in your root build.gradle at the end of repositories:
 	}
 
     dependencies {
-         compile 'com.github.hajiyevelnur92:intentanimation:1.0'
+         compile 'com.github.hajiyevelnur92:intentanimation:1.0.4'
     }
   
  
