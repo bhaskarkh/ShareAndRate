@@ -21,7 +21,7 @@ Add it in your root build.gradle at the end of repositories:
   ##**Code**
    
 ```java
-  There are two method
+  There are three method
   shareMyApp(int icon_image, String subject, String txtmsg);
   shareMyApp(int icon_image, String subject, String txtmsg,String link);
   rateThisApp();
