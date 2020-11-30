@@ -1,11 +1,13 @@
 package com.bhaskar.shareandrateapp;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
 
@@ -58,4 +60,17 @@ public class ShareAndRateApp {
 
 
     }
+    public void rateThisApp() {
+
+        try
+        {
+            context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + context.getPackageName())));
+        }
+        catch (ActivityNotFoundException localActivityNotFoundException)
+        {
+            Toast.makeText(context, "No App Found",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }
