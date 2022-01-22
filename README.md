@@ -18,7 +18,7 @@ Add it in your root build.gradle at the end of repositories:
   
  
   
-  ##**Code**
+  ## **Code**
    
 ```java
   There are three method
@@ -40,3 +40,68 @@ int image_name=R.drawable.b2 ; // image to be attached in msg
  
  //To Rate the app
 shareAndRateApp.rateThisApp();
+```
+
+## **Additional Configuration if you are getting any Error like this**
+#### 
+```java 
+ Writing exception to parcel java.lang.SecurityException: Permission Denial: reading androidx.core.content.FileProvider uri content://com.bhaskar.myapplication.fileprovider/external_files/Android/data/com.bhaskar.myapplication/cache/iconforshare.png from pid=24902, uid=1000 requires the provider be exported, or grantUriPermission()
+```
+
+**just add below code in manifest file**
+```xml
+android:requestLegacyExternalStorage="true"
+
+```
+```xml
+ <provider android:name="androidx.core.content.FileProvider"
+		android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+           android:grantUriPermissions="true">
+           <meta-data
+			android:name="android.support.FILE_PROVIDER_PATHS"
+              android:resource="@xml/provider_paths" />
+        </provider>
+```
+
+### After adding above code manfiest.xml will look like this
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bhaskar.myapplication">
+
+    <application
+        ....
+       android:requestLegacyExternalStorage="true">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider android:name="androidx.core.content.FileProvider"
+		android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+           android:grantUriPermissions="true">
+           <meta-data
+			android:name="android.support.FILE_PROVIDER_PATHS"
+              android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>
+```
+## add provider_paths.xml in xml folder inside res
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external_files" path="."/>
+</paths>
+
+```
+
+## Folder structure
+
+![folder structure](https://github.com/bhaskarkh/Image/blob/main/android_folder_structure.PNG?raw=true)
