@@ -47,7 +47,8 @@ public class ShareAndRateApp {
 
 
             intent.setType("image/png");
-            context.startActivity(Intent.createChooser(intent, "Share with"));
+            //context.startActivity(Intent.createChooser(intent, "Share with"));
+            context.startActivity(intent);
         } catch (Exception e) {
             Log.d(TAG, "shareMyApp: Exception msg= "+e.getMessage());
             e.printStackTrace();
