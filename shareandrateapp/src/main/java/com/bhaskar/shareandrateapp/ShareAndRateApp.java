@@ -44,11 +44,11 @@ public class ShareAndRateApp {
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.putExtra("android.intent.extra.SUBJECT",subject);
             intent.putExtra("android.intent.extra.TEXT", txtmsg);
-
-
             intent.setType("image/png");
             //context.startActivity(Intent.createChooser(intent, "Share with"));
-            context.startActivity(intent);
+            Intent chooser = Intent.createChooser(intent, "Share with");
+            chooser.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            context.startActivity(chooser);
         } catch (Exception e) {
             Log.d(TAG, "shareMyApp: Exception msg= "+e.getMessage());
             e.printStackTrace();
