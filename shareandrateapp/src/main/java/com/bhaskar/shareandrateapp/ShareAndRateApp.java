@@ -3,6 +3,8 @@ package com.bhaskar.shareandrateapp;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,7 +15,7 @@ import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.io.FileOutputStream;
-
+import java.util.List;
 
 
 public class ShareAndRateApp {
@@ -45,10 +47,17 @@ public class ShareAndRateApp {
             intent.putExtra("android.intent.extra.SUBJECT",subject);
             intent.putExtra("android.intent.extra.TEXT", txtmsg);
             intent.setType("image/png");
-            //context.startActivity(Intent.createChooser(intent, "Share with"));
             Intent chooser = Intent.createChooser(intent, "Share with");
-            chooser.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(chooser, PackageManager.MATCH_DEFAULT_ONLY);
+            for (ResolveInfo resolveInfo : resInfoList) {
+                String packageName = resolveInfo.activityInfo.packageName;
+
+                context.grantUriPermission(packageName, outputFileUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            }
+
             context.startActivity(chooser);
+
+
         } catch (Exception e) {
             Log.d(TAG, "shareMyApp: Exception msg= "+e.getMessage());
             e.printStackTrace();
