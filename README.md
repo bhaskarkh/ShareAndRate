@@ -16,9 +16,11 @@ Add it in your root build.gradle at the end of repositories:
           implementation 'com.github.bhaskarkh:ShareAndRate:1.0.8';
     }
   
- ## Youtube Tutorial on how to use this library
+ ## Youtube Tutorial on how to use this library (https://youtu.be/AZpBPlaw41M)
  
  [![Share and Rate Library](http://img.youtube.com/vi/AZpBPlaw41M/0.jpg)](http://www.youtube.com/watch?v=AZpBPlaw41M "How to use share and rate library")
+ 
+ 
   
   
   ## **Code**
